@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+  </head>
+  <body>
+
+  <% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      
+    </aside>
+  </div>
+
+  <%else %>
+
+  	<div class="center hero-unit">
+    	<h1>Greed to Read</h1>
+    	<h2>Review.Rate.Recommend</h2>
+       
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>. Not you?
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+      <% end %>
+  
+    	
+    </div>
+
+    <%end%>
+  </body>
+</html>
