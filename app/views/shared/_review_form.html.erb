@@ -1,0 +1,10 @@
+<%= form_for(@book) do |f| %>
+<%= f.fields_for :review do |review| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= review.text_area :content, placeholder: "Compose new review..." %>
+  </div>
+  <%= review.submit "Post", class: "btn btn-large btn-primary" %>
+  <% end %>
+  
+<% end %>

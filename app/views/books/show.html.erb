@@ -1,0 +1,24 @@
+<% provide(:title, @book.title)%>
+<%= @book.isbn %>, <%= @book.title %>, <%= @book.author %>
+
+<%= link_to "Edit", edit_book_path %>
+
+
+ <div class="row">
+    <aside class="span4">
+      
+      <section>
+        <%= render 'shared/review_form' %>
+      </section>
+    </aside>
+  </div>
+<h3>Reviews (<%= @book.reviews.count %>)</h3>
+  <div class="span8">
+    <% if @book.reviews.any? %>
+      <h3>Reviews (<%= @book.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+</div>

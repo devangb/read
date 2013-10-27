@@ -1,0 +1,26 @@
+<% provide(:title, 'Edit book') %>
+<h1>Edit a book</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+<%= form_for(@book) do |f| %>
+  
+
+  <%= render 'shared/books_error_messages'%>
+	
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title %></div>
+
+  <div><%= f.label :ISBN_No %><br />
+  <%= f.number_field :isbn %></div>
+
+  <div><%= f.label :author %><br />
+  <%= f.text_field :author %></div>
+
+  <div><%= f.submit "Change", class: "btn btn-small btn-primary" %></div>
+<% end %>
+
+
+ </div>
+</div>

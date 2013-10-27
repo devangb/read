@@ -1,10 +1,12 @@
 Read::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/contact"
-  get "static_pages/about"
+
+ 
   devise_for :users
   resources :users
+  resources :books
+  resources :books, :users do
+    resources :reviews, :only => [:create, :destroy]
+  end
 
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/help', to: 'static_pages#help', via: 'get'
