@@ -7,6 +7,7 @@ Read::Application.routes.draw do
   #resources :reviews
   resources :books, :users do
     resources :reviews, :only => [:create, :destroy]
+    
   end
 
   match '/contact', to: 'static_pages#contact', via: 'get'

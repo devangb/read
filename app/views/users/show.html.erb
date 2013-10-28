@@ -4,12 +4,15 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= gravatar_for_user @user %>
         <%= @user.name %>
+        <h5>
+        <%= @user.reviews.count %> reviews
+        </h5>
       </h1>
+      
     </section>
-  </aside>
-</div>
+
 <div class="btn-group">
   <button type="button" class="btn"><%= link_to "Books", books_path %></button>
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -24,4 +27,14 @@
   </ul>
 </div>
 </aside>
+<div class="span8">
+    <% if @user.reviews.any? %>
+      <h3>Reviews (<%= @user.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
+</div>
 

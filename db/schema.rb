@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028042008) do
+ActiveRecord::Schema.define(version: 20131028111649) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20131028042008) do
     t.datetime "updated_at"
     t.string   "content"
   end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "review_id"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["book_id"], name: "index_ratings_on_book_id"
+  add_index "ratings", ["review_id"], name: "index_ratings_on_review_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "reviews", force: true do |t|
     t.string   "content"

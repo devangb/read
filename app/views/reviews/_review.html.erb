@@ -1,5 +1,7 @@
 <li>
-	<%= review.user_id %>
+	<%= gravatar_for_user User.find(review.user_id) %>
+	<%= link_to User.find(review.user_id).name,  User.find(review.user_id) %> review for <%= link_to Book.find(review.book_id).title, Book.find(review.book_id) %>
+        
   <span class="content"><%= review.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(review.created_at) %> ago.

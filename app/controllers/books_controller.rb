@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  before_action :signed_in_user
+
   def new
     @book = Book.new
   end
@@ -14,13 +17,15 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @review = Review.new
+    @review_all = @book.reviews
     @reviews = @book.reviews.paginate(page: params[:page])
+    #@user = User.find(params)
   end
 
   def index
     @books = Book.paginate(page: params[:page])
   end
+  
 
   def update
     @book = Book.find(params[:id])
@@ -29,13 +34,12 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.update_attributes(book_params)
         @review.content = @book.content
-        
         @review.book_id = @book.id
         @review.user_id = current_user.id if user_signed_in?
         @review.save
-        @book.content = 'NULL'
+        Book.update(@book.id, :content => '')
         @book.update_attributes(book_params)
-        format.html { redirect_to @book, :notice => ('Book was successfully updated.') }
+        format.html { redirect_to @book }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -49,6 +53,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def signed_in_user
+      redirect_to new_user_session_path , notice: "Please sign in." unless signed_in?
+    end
 
   def book_params
     params.require(:book).permit(:title, :author, :isbn, :content)

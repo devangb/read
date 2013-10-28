@@ -1,16 +1,17 @@
 <% provide(:title, @book.title)%>
-<%= @book.isbn %>, <%= @book.title %>, <%= @book.author %>
 
-<%= link_to "Edit", edit_book_path %>
 
   <div class="row">
     <aside class="span4">
-      
+      <%= gravatar_for_book @book %><%= @book.isbn %>, <%= @book.title %>, <%= @book.author %>
+      <br>
+      <%= link_to "Edit", edit_book_path %>
       <section>
         <%= render 'shared/review_form' %>
       </section>
     </aside>
-  </div>
+  
+
   <div class="span8">
     <% if @book.reviews.any? %>
       <h3>Reviews (<%= @book.reviews.count %>)</h3>
@@ -19,4 +20,5 @@
       </ol>
       <%= will_paginate @reviews %>
     <% end %>
+  </div>
 </div>
