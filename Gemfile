@@ -11,6 +11,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'jquery-star-rating-rails'
+gem 'formtastic'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

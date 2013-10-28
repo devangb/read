@@ -3,8 +3,7 @@
 
 <%= link_to "Edit", edit_book_path %>
 
-
- <div class="row">
+  <div class="row">
     <aside class="span4">
       
       <section>
@@ -12,7 +11,6 @@
       </section>
     </aside>
   </div>
-<h3>Reviews (<%= @book.reviews.count %>)</h3>
   <div class="span8">
     <% if @book.reviews.any? %>
       <h3>Reviews (<%= @book.reviews.count %>)</h3>

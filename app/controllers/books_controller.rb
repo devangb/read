@@ -24,9 +24,17 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    :review = Review.create
+    @review = Review.new
+    
     respond_to do |format|
       if @book.update_attributes(book_params)
+        @review.content = @book.content
+        
+        @review.book_id = @book.id
+        @review.user_id = current_user.id if user_signed_in?
+        @review.save
+        @book.content = 'NULL'
+        @book.update_attributes(book_params)
         format.html { redirect_to @book, :notice => ('Book was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -43,6 +51,10 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :isbn)
+    params.require(:book).permit(:title, :author, :isbn, :content)
+  end
+
+  def review_params
+    params.require(:review).permit(:content)
   end
 end
