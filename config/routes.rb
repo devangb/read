@@ -1,10 +1,10 @@
 Read::Application.routes.draw do
 
  
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :users
   resources :books
-  #resources :reviews
+  resources :reviews, :only => [:create, :destroy]
   resources :books, :users do
     resources :reviews, :only => [:create, :destroy]
     

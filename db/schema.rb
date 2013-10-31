@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028111649) do
+ActiveRecord::Schema.define(version: 20131029041105) do
 
   create_table "books", force: true do |t|
     t.string   "title"
@@ -21,19 +21,6 @@ ActiveRecord::Schema.define(version: 20131028111649) do
     t.datetime "updated_at"
     t.string   "content"
   end
-
-  create_table "ratings", force: true do |t|
-    t.integer  "review_id"
-    t.integer  "user_id"
-    t.integer  "book_id"
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ratings", ["book_id"], name: "index_ratings_on_book_id"
-  add_index "ratings", ["review_id"], name: "index_ratings_on_review_id"
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "reviews", force: true do |t|
     t.string   "content"
@@ -47,12 +34,12 @@ ActiveRecord::Schema.define(version: 20131028111649) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -60,6 +47,7 @@ ActiveRecord::Schema.define(version: 20131028111649) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

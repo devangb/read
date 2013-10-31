@@ -6,7 +6,7 @@
 <ul class="users">
   <% @books.each do |book| %>
      <li>
-      
+      <%= gravatar_for_book book %>
       <%= link_to book.title, book %>
     </li>
 

@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :name
+  validates :name, presence: true
   
 
   has_many :reviews
+
+  def feed
+    Review.where("user_id = ?", id)
+  end
 end
