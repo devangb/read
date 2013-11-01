@@ -3,6 +3,10 @@
   <span class="user">
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
+  review for
+  <span>
+    <%= link_to feed_item.book.title, feed_item.book %>
+  </span>
   <span class="content"><%= feed_item.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.

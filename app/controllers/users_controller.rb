@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
   end
 
-  before_action :signed_in_user, only: [:show, :destroy, :index, :feed]
+  before_action :signed_in_user, only: [:show, :destroy, :index, :feed, :following, :followers]
   before_action :admin_user,     only: :destroy
   def show
   	@user = User.find(params[:id])
@@ -27,6 +27,20 @@ class UsersController < ApplicationController
     flash[:success] = "User deleted."
     redirect_to users_url
 
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   

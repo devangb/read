@@ -12,6 +12,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'jquery-star-rating-rails'
 gem 'formtastic'
+#gem "gsl", "~> 1.15.3"
+#gem "narray", "~> 0.6.0.8"
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

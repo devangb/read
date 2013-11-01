@@ -12,6 +12,9 @@
         <%= render 'shared/user_info' %>
         <%= User.find(current_user.id).reviews.count %> reviews
       </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
 
       
     </aside>
