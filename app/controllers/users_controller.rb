@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   before_action :signed_in_user, only: [:show, :destroy, :index, :feed]
+  before_action :admin_user,     only: :destroy
   def show
   	@user = User.find(params[:id])
     @reviews = @user.reviews.paginate(page: params[:page])
@@ -38,4 +39,8 @@ class UsersController < ApplicationController
   def current_user?(user)
     user == current_user
   end
+
+  def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end

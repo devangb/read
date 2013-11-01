@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #http_basic_authenticate_with :name => "Devang", :password => "b12059"
   include SessionsHelper
+  include ReviewsHelper
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
