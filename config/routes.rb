@@ -1,16 +1,21 @@
 Read::Application.routes.draw do
 
- 
-  get "relationships/create"
-  get "relationships/destroy"
+  get "reader_relationships/create"
+  get "reader_relationships/destroy"
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :users
   resources :books
   #resources :reviews, :only => [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :users do
+  resources :reader_relationships, only: [:create, :destroy]
+  resources :users  do
     member do
       get :following, :followers
+    end
+  end
+  resources :users, :books do
+    member do
+      get :read, :readers
     end
   end
   resources :books, :users do

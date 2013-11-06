@@ -43,6 +43,14 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def read
+    @title = "Read"
+    @user = User.find(params[:id])
+    @users = @user.read_books.paginate(page: params[:page])
+    @books = @user.read_books.paginate(page: params[:page])
+    render 'show_read'
+  end
+
   
 
   private 

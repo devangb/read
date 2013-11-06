@@ -52,6 +52,14 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def readers
+    @title = "Readers"
+    @book = Book.find(params[:id])
+    @books = @book.readers.paginate(page: params[:page])
+    @readers = @book.readers.paginate(page: params[:page])
+    render 'show_reader'
+  end
+
   private
 
   def signed_in_user

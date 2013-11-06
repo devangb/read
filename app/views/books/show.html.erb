@@ -7,10 +7,20 @@
       <br>
       <%= link_to "Edit", edit_book_path %>
       <section>
+        <%= render 'shared/book_read_stats' %>
+      </section>
+      <section>
         <%= render 'shared/review_form' %>
       </section>
     </aside>
   
+  <div id="read_form">
+  <% if current_user.read?(@book) %>
+    <%= render 'unread' %>
+  <% else %>
+    <%= render 'read' %>
+  <% end %>
+  </div>
 
   <div class="span8">
     <% if @book.reviews.any? %>
