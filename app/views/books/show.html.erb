@@ -10,7 +10,18 @@
         <%= render 'shared/book_read_stats' %>
       </section>
       <section>
+        Average rating:
+      <%= ratings_for @book %>
+      </section>
+      <section>
+        Your Rating:
+      <%= ratings_for @book, :show_user_rating => true %>
+      </section>
+      <section>
         <%= render 'shared/review_form' %>
+      </section>
+      <section>
+        <%= link_to image_tag("amazon.png", :alt => "Amazon link"), @book.amazon_link %>
       </section>
     </aside>
   

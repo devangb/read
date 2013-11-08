@@ -1,7 +1,6 @@
 Read::Application.routes.draw do
 
-  get "reader_relationships/create"
-  get "reader_relationships/destroy"
+  
   devise_for :users, :controllers => {:registrations => "users/registrations"}
   resources :users
   resources :books
@@ -16,6 +15,7 @@ Read::Application.routes.draw do
   resources :users, :books do
     member do
       get :read, :readers
+      post :rate
     end
   end
   resources :books, :users do
@@ -23,6 +23,10 @@ Read::Application.routes.draw do
     resources :reviews, :only => [:create, :destroy]
     end
   end
+
+  #resources :users, :member => {:rate => :post}
+
+  #resources :books, :member => {:rate => :post}
 
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/help', to: 'static_pages#help', via: 'get'

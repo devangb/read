@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
                                    class_name:  "ReaderRelationship",
                                    dependent:   :destroy
   has_many :readers, through: :reverse_reader_relationships, source: :reader
+
+
+  ajaxful_rater
+
   def feed
     Review.from_users_followed_by(self)
   end

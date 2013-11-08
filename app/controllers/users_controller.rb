@@ -51,6 +51,15 @@ class UsersController < ApplicationController
     render 'show_read'
   end
 
+  def rate
+    @book = Book.find(params[:id])
+    @book.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @book.wrapper_dom_id(params), ratings_for(@book, params.merge(:wrap => false))
+      page.visual_effect :highlight, @book.wrapper_dom_id(params)
+    end
+  end
+
   
 
   private 

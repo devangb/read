@@ -12,6 +12,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'jquery-star-rating-rails'
 gem 'formtastic'
+gem 'ajaxful_rating', '3.0.0.beta8'#, github: 'edgarjs/ajaxful_rating'
+#gem 'letsrate', github: 'benmanns/letsrate'
 #gem "gsl", "~> 1.15.3"
 #gem "narray", "~> 0.6.0.8"
 

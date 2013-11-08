@@ -60,6 +60,15 @@ class BooksController < ApplicationController
     render 'show_reader'
   end
 
+  def rate
+    @book = Book.find(params[:id])
+    @book.rate(params[:stars], current_user, params[:dimension])
+    render :update do |page|
+      page.replace_html @book.wrapper_dom_id(params), ratings_for(@book, params.merge(:wrap => false))
+      page.visual_effect :highlight, @book.wrapper_dom_id(params)
+    end
+  end
+
   private
 
   def signed_in_user
@@ -67,7 +76,7 @@ class BooksController < ApplicationController
     end
 
   def book_params
-    params.require(:book).permit(:title, :author, :isbn, :content)
+    params.require(:book).permit(:title, :author, :isbn, :content, :amazon_link)
   end
 
   def review_params

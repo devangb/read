@@ -5,7 +5,7 @@
     <section>
       <h1>
         <%= gravatar_for_user @user %>
-        <%= @user.name %>
+        <%= link_to @user.name, @user%>
         <% if current_user.admin? && !current_user?(@user) %>
         | <%= link_to "delete", @user, method: :delete,
                                   data: { confirm: "You sure?" } %>
@@ -17,6 +17,9 @@
     </section>
     <section>
       <%= render 'shared/stats' %>
+    </section>
+    <section>
+      <%= render 'shared/user_read_stats' %>
     </section>
 
   <div class="btn-group">
