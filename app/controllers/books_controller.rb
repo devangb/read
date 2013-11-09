@@ -23,7 +23,13 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.paginate(page: params[:page])
+    #@books = Book.paginate(page: params[:page])
+    @search = Book.search do
+      fulltext params[:search]
+      paginate(page: params[:page])
+    end
+    @books = @search.results
+    #@books = Book.paginate(page: params[:page])
   end
   
 
@@ -63,6 +69,7 @@ class BooksController < ApplicationController
   def rate
     @book = Book.find(params[:id])
     @book.rate(params[:stars], current_user, params[:dimension])
+    current_user.rate!(@book, :stars)
     render :update do |page|
       page.replace_html @book.wrapper_dom_id(params), ratings_for(@book, params.merge(:wrap => false))
       page.visual_effect :highlight, @book.wrapper_dom_id(params)

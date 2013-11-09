@@ -1,6 +1,12 @@
 <% provide(:title, 'All books') %>
 <h1>All books</h1>
 
+<%= form_tag books_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil, class: "btn" %>
+<% end %>
+
 <%= will_paginate %>
 
 <ul class="users">
@@ -8,8 +14,9 @@
      <li>
       <%= gravatar_for_book book %>
       <%= link_to book.title, book %>
+      
     </li>
-
+    <%= ratings_for book %>
   <% end %>
 </ul>
 

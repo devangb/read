@@ -16,7 +16,11 @@ gem 'ajaxful_rating', '3.0.0.beta8'#, github: 'edgarjs/ajaxful_rating'
 #gem 'letsrate', github: 'benmanns/letsrate'
 #gem "gsl", "~> 1.15.3"
 #gem "narray", "~> 0.6.0.8"
-
+gem 'coletivo', '0.0.3'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
+gem 'rdoc'
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'

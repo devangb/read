@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :name
+  attr_accessible :email, :password, :password_confirmation, :name, :person_id, :person_type, :rateable_id, :rateable_type, :weight
   validates :name, presence: true
   
 
@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
 
 
   ajaxful_rater
+
+  has_own_preferences
+
+  searchable do 
+    text :name
+  end
 
   def feed
     Review.from_users_followed_by(self)

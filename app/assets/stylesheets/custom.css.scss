@@ -207,10 +207,10 @@ input {
 
 .users {
   list-style: none;
-  margin: 0;
+  margin: 20;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 0px 0;
     border-top: 1px solid $grayLighter;
     &:last-child {
       border-bottom: 1px solid $grayLighter;

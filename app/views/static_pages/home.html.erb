@@ -18,6 +18,12 @@
       <section>
         <%= render 'shared/user_read_stats' %>
       </section>
+      <div class="btn-group">
+      <button type="button" class="btn"><%= link_to "Books", books_path %></button>
+    
+      <%= link_to "Add a new Book", new_book_path, class: "btn" %>
+    
+    </div>
       
     </aside>
      <div class="span8">

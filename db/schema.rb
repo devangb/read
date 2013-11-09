@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20131106215542498) do
     t.string   "amazon_link"
   end
 
+  create_table "person_ratings", force: true do |t|
+    t.integer  "person_id"
+    t.string   "person_type"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.decimal  "weight",        precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "person_ratings", ["rateable_type"], name: "index_person_ratings_on_rateable_type"
+
   create_table "rates", force: true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"

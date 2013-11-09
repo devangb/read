@@ -16,6 +16,12 @@ class Book < ActiveRecord::Base
 
   	ajaxful_rateable :dimensions => :rating
 
+  	has_own_preferences
+
+  	searchable do 
+  		text :title, :author
+  	end
+
 	def read?(book)
     	reader_relationships.find_by(read_id: book.id)
   	end
