@@ -3,7 +3,16 @@
 
   <div class="row">
     <aside class="span4">
-      <%= gravatar_for_book @book %><%= @book.isbn %>, <%= @book.title %>, <%= @book.author %>
+      <div>
+      <%= gravatar_for_book @book %> 
+      <h4><%= link_to @book.title, book_path %></h4>
+      </div>
+      <div>
+        <b>ISBN No.:  </b> <%= @book.isbn %>
+      </div>
+      <div>
+        <b>Author:  </b> <%= @book.author %>
+      </div>
       <br>
       <%= link_to "Edit", edit_book_path %>
       <section>
@@ -23,6 +32,7 @@
       <section>
         <%= link_to image_tag("amazon.png", :alt => "Amazon link"), @book.amazon_link %>
       </section>
+    
     </aside>
   
   <div id="read_form">

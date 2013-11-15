@@ -1,0 +1,10 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= read_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.read_books.count %>
+    </strong>
+    Read Books
+  </a>
+  
+</div>

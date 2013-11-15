@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131106215542498) do
     t.string   "content"
     t.decimal  "rating_average", precision: 6, scale: 2, default: 0.0
     t.string   "amazon_link"
+    t.string   "image"
   end
 
   create_table "person_ratings", force: true do |t|

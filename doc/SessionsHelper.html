@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=IBM437" http-equiv="Content-Type">
+
+<title>module SessionsHelper - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/helpers/sessions_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-current_user-3F">#current_user?</a>
+    
+    <li><a href="#method-i-redirect_back_or">#redirect_back_or</a>
+    
+    <li><a href="#method-i-signed_in_user">#signed_in_user</a>
+    
+    <li><a href="#method-i-store_location">#store_location</a>
+    
+    <li><a href="#method-i-store_previous_location">#store_previous_location</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+    <li><a href="./Read.html">Read</a>
+  
+    <li><a href="./Read/Application.html">Read::Application</a>
+  
+    <li><a href="./Users.html">Users</a>
+  
+    <li><a href="./Users/RegistrationsController.html">Users::RegistrationsController</a>
+  
+    <li><a href="./AddAdminToUsers.html">AddAdminToUsers</a>
+  
+    <li><a href="./AddAmazonLinkToBooks.html">AddAmazonLinkToBooks</a>
+  
+    <li><a href="./AddContentToBook.html">AddContentToBook</a>
+  
+    <li><a href="./AddNameToUser.html">AddNameToUser</a>
+  
+    <li><a href="./AddRatingAverageToBooks.html">AddRatingAverageToBooks</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Book.html">Book</a>
+  
+    <li><a href="./BooksController.html">BooksController</a>
+  
+    <li><a href="./BooksHelper.html">BooksHelper</a>
+  
+    <li><a href="./CreateBooks.html">CreateBooks</a>
+  
+    <li><a href="./CreatePersonRatings.html">CreatePersonRatings</a>
+  
+    <li><a href="./CreateRates.html">CreateRates</a>
+  
+    <li><a href="./CreateReaderRelationships.html">CreateReaderRelationships</a>
+  
+    <li><a href="./CreateRelationships.html">CreateRelationships</a>
+  
+    <li><a href="./CreateReviews.html">CreateReviews</a>
+  
+    <li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./PersonRating.html">PersonRating</a>
+  
+    <li><a href="./Rate.html">Rate</a>
+  
+    <li><a href="./ReaderRelationship.html">ReaderRelationship</a>
+  
+    <li><a href="./ReaderRelationshipsController.html">ReaderRelationshipsController</a>
+  
+    <li><a href="./ReaderRelationshipsHelper.html">ReaderRelationshipsHelper</a>
+  
+    <li><a href="./Relationship.html">Relationship</a>
+  
+    <li><a href="./RelationshipsController.html">RelationshipsController</a>
+  
+    <li><a href="./RelationshipsHelper.html">RelationshipsHelper</a>
+  
+    <li><a href="./Review.html">Review</a>
+  
+    <li><a href="./ReviewsController.html">ReviewsController</a>
+  
+    <li><a href="./ReviewsHelper.html">ReviewsHelper</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./StaticPagesHelper.html">StaticPagesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module SessionsHelper</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-current_user-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_user?</span><span
+            class="method-args">(user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_user-3F-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_user?</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">user</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current_user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current_user-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current_user-3F-method -->
+
+    
+      <div id="method-i-redirect_back_or" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redirect_back_or</span><span
+            class="method-args">(default)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redirect_back_or-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redirect_back_or</span>(<span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">redirect_to</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">session</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:return_to</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- redirect_back_or-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- redirect_back_or-method -->
+
+    
+      <div id="method-i-signed_in_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signed_in_user</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="signed_in_user-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signed_in_user</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">signed_in?</span>
+      <span class="ruby-identifier">store_location</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">signin_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Please sign in.&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- signed_in_user-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- signed_in_user-method -->
+
+    
+      <div id="method-i-store_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_location</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_location-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_location</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">url</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- store_location-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- store_location-method -->
+
+    
+      <div id="method-i-store_previous_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_previous_location</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_previous_location-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_previous_location</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">referer</span>).<span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- store_previous_location-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- store_previous_location-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

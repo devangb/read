@@ -1,0 +1,5 @@
+<%= form_for(current_user.reader_relationships.find_by(read_id: @book),
+             html: { method: :delete, action: :destroy },
+             remote: true) do |f| %>
+  <%= f.submit "Unread", class: "btn btn-large" %>
+<% end %>

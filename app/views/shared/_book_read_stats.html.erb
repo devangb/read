@@ -1,0 +1,10 @@
+<% @book ||= Book.find(params[:id]) %>
+<div class="stats">
+  
+  <a href="<%= readers_book_path(@book) %>">
+    <strong id="readers" class="stat">
+      <%= @book.readers.count %>
+    </strong>
+    Readers
+  </a>
+</div>

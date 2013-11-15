@@ -4,7 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
 
-<%= form_for(@book) do |f| %>
+<%= form_for @book, :html => {:multipart => true} do |f| %>
   
 
   <%= render 'shared/books_error_messages'%>
@@ -21,6 +21,7 @@
   <div><%= f.label :amazon_link %><br />
   <%= f.text_field :amazon_link %></div>
 
+  
   <div><%= f.submit "Add", class: "btn btn-small btn-primary" %></div>
 <% end %>
 

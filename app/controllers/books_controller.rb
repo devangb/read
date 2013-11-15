@@ -83,7 +83,7 @@ class BooksController < ApplicationController
     end
 
   def book_params
-    params.require(:book).permit(:title, :author, :isbn, :content, :amazon_link)
+    params.require(:book).permit(:title, :author, :isbn, :content, :amazon_link, :image)
   end
 
   def review_params

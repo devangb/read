@@ -1,0 +1,4 @@
+<%= form_for(current_user.reader_relationships.build(read_id: @book.id), remote: true) do |f| %>
+  <div><%= f.hidden_field :read_id %></div>
+  <%= f.submit "Read", class: "btn btn-large btn-primary" %>
+<% end %>

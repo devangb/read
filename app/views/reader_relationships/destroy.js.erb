@@ -1,0 +1,2 @@
+$("#read_form").html("<%= escape_javascript(render('books/read')) %>")
+$("#readers").html('<%= @book.readers.count %>')
