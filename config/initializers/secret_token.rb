@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Read::Application.config.secret_key_base = '7b87d095193e9f27ad5960bef3d195698c692a8c247a0e495888958872c50281835762f6dcbeb4d6e3a5e33cac4a3d85495af97a9bdb016075be1e9b118eb53b'
+Read::Application.config.secret_key_base = '##############'
